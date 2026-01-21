@@ -59,7 +59,20 @@ public class PracticalTest02v7MainActivity extends AppCompatActivity {
             }
         });
 
-
+        executeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String server = adresaServerEditText.getText().toString();
+                String port = clientPortEditText.getText().toString();
+                String action = actiuneEditText.getText().toString();
+                String minute = minutEditText.getText().toString();
+                String second = secundaEditText.getText().toString();
+                if (!action.isEmpty()) {
+                    new ClientThread(server.trim(), Integer.parseInt(port.trim()),
+                            action.trim(), minute.trim(), second.trim()).start();
+                }
+            }
+        });
 
     }
 }
